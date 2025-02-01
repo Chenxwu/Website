@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previous Employment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Previous Employment</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Employment Section -->
+            <section>
+                <h2>Employment</h2>
+                <ul>
+                    {% for job in employment %}
+                        <li>
+                            <strong>{{ job.job_title }}</strong> at <strong>{{ job.company }}</strong> <br>
+                            <em>{{ job.duration }}</em>
+                            <p>{{ job.description }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <!-- Volunteering Section -->
+            <section>
+                <h2>Volunteering</h2>
+                <ul>
+                    {% for activity in volunteering %}
+                        <li>
+                            <strong>{{ activity.title }}</strong> at <strong>{{ activity.organization }}</strong> <br>
+                            <em>{{ activity.year }}</em>
+                            <p>{{ activity.description }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <!-- Navigation Back -->
+            <section>
+                <a href="/" class="back-link">Back to Home</a>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Links</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Social Media Links</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <section>
+                <p>Feel free to connect with me on any of these links below:</p>
+                <ul>
+                    {% for platform, link in social_media_links.items() %}
+                        <li><a href="{{ link }}" target="_blank">{{ platform }}</a></li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <!-- Navigation Back -->
+            <section>
+                <a href="/" class="back-link">Back to Home</a>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
