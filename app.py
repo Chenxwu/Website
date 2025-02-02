@@ -137,6 +137,5 @@ def social_media_links_page():
 def employment_page():
     return render_template('employment.html', employment=employment, volunteering=volunteering)
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))  # Default to 10000
-    app.run(host="0.0.0.0", port=port)
+if __name__ == '__main__':
+    app.run(debug=True)
